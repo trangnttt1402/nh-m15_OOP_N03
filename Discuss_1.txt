@@ -1,0 +1,11 @@
+﻿1.1 giá trị trả về là giá trị mà một hàm trả lại cho phần của chương trình đã gọi nó. Đây là một khái niệm quan trọng để hiểu cách các hàm hoạt động và cách chúng có thể được sử dụng để thực hiện các tác vụ và trả về kết quả..
+1.2Sự khác biệt chính:
+*Mục đích:
+-Không có giá trị trả về: Dùng để thực hiện các hành động hoặc hiệu ứng phụ (ví dụ: in ra console).
+-Có giá trị trả về: Dùng cho các phép tính hoặc thao tác mà kết quả cần được sử dụng sau đó.
+*Cách sử dụng:
+-Không có giá trị trả về: Lệnh gọi hàm đứng một mình.
+Có giá trị trả về: Lệnh gọi hàm thường là một phần của biểu thức hoặc được gán cho một biến.
+*Luồng điều khiển:
+-Không có giá trị trả về: Hàm hoàn thành nhiệm vụ của nó và kết thúc.
+-Có giá trị trả về: Hàm hoàn thành nhiệm vụ, trả về một giá trị, và sau đó kết thúc.
