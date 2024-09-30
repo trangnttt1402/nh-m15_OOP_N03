@@ -13,10 +13,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         LoginWindow.display(primaryStage, this);
     }
 
+   
     public void showMainWindow(Stage primaryStage) {
+        primaryStage.hide();  // Hide the login window
         MainWindow.display(primaryStage, productManager, orderManager);
     }
 

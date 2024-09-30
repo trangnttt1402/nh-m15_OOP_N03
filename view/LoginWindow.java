@@ -1,45 +1,61 @@
 package com.example.trangg.view;
 
-import com.example.trangg.MainApp;
-import com.example.trangg.controller.UserManager;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import com.example.trangg.MainApp;
 
 public class LoginWindow {
+
     public static void display(Stage primaryStage, MainApp mainApp) {
-        primaryStage.setTitle("Đăng nhập");
+        primaryStage.setTitle("Login");
 
-        Label usernameLabel = new Label("Tên người dùng:");
-        TextField usernameField = new TextField();
-        Label passwordLabel = new Label("Mật khẩu:");
+        Label nameLabel = new Label("Username:");
+        TextField nameField = new TextField();
+        Label passwordLabel = new Label("Password:");
         PasswordField passwordField = new PasswordField();
-        Button loginButton = new Button("Đăng nhập");
-
-        UserManager userManager = new UserManager();
+        Button loginButton = new Button("Login");
+        Button registerButton = new Button("Register");
 
         loginButton.setOnAction(e -> {
-            String username = usernameField.getText();
+            String username = nameField.getText();
             String password = passwordField.getText();
-            if (userManager.authenticate(username, password) != null) {
-                // Chuyển đến giao diện chính nếu đăng nhập thành công
-                mainApp.showMainWindow(primaryStage);
-            } else {
-                // Hiển thị thông báo lỗi nếu đăng nhập thất bại
-                System.out.println("Tên người dùng hoặc mật khẩu không đúng!");
+
+
+            if (username.isEmpty() || password.isEmpty()) {
+                showAlert("Error", "Please enter both username and password.");
+                return;
             }
+
+            System.out.println("Login button clicked for user: " + username);
+            mainApp.showMainWindow(primaryStage); // Transition to the main window
         });
 
-        VBox vbox = new VBox(10, usernameLabel, usernameField, passwordLabel, passwordField, loginButton);
-        vbox.setAlignment(Pos.CENTER);
+        registerButton.setOnAction(e -> {
 
-        Scene scene = new Scene(vbox, 300, 200);
+            System.out.println("Register button clicked");
+
+        });
+
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(nameLabel, nameField, passwordLabel, passwordField, loginButton, registerButton);
+
+        Scene scene = new Scene(layout, 300, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+
+    private static void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
