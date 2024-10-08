@@ -8,6 +8,7 @@ Dự án này là một hệ thống quản lý cửa hàng, giúp tối ưu hó
 ## Thành viên nhóm
 
 - Ngô Thị Thùy Trang: Phát triển phần mềm toàn diện.
+- Trần Thiên Đạt: phát triển toàn diện dự án.
 
 ## Chức năng chính
 
